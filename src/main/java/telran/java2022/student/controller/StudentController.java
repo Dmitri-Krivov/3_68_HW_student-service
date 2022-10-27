@@ -2,12 +2,15 @@ package telran.java2022.student.controller;
 
 import java.util.ArrayList;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import telran.java2022.student.dto.StudentCreateDto;
@@ -40,7 +43,7 @@ public class StudentController {
 	}
 
 	@PutMapping("/student/{id}")
-	public Boolean studentUpdateScore(@PathVariable Integer id, @RequestBody String exam, @RequestBody int score) {
+	public Boolean studentUpdateScore(@PathVariable Integer id, @RequestParam String exam, @RequestParam int score) {
 		return studentService.studentUpdateScore(id, exam, score);
 
 	}
@@ -56,7 +59,7 @@ public class StudentController {
 	}
 
 	@GetMapping("/student/exam/{exam}/minscore/{minScore}")
-	public ArrayList<StudentDto> findStudentByMinScore(@PathVariable String exam, int minScore) {
+	public ArrayList<StudentDto> findStudentByMinScore(@PathVariable String exam, @PathVariable int minScore) {
 		return studentService.findStudentByMinScore(exam, minScore);
 	}
 
