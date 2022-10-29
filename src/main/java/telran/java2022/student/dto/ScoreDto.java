@@ -2,8 +2,9 @@ package telran.java2022.student.dto;
 
 import lombok.Getter;
 
+
 @Getter
-public class StudentAddScore {
+public class ScoreDto {
 	String examName;
-	int score;
+	Integer score;
 }

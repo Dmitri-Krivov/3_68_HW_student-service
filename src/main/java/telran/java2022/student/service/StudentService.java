@@ -1,7 +1,9 @@
 package telran.java2022.student.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import telran.java2022.student.dto.ScoreDto;
 import telran.java2022.student.dto.StudentCreateDto;
 import telran.java2022.student.dto.StudentDto;
 import telran.java2022.student.dto.StudentUpdateDto;
@@ -15,12 +17,12 @@ public interface StudentService {
 
 	StudentCreateDto updateStudent(Integer id, StudentUpdateDto studentUpdateDto);
 
-	Boolean studentUpdateScore(Integer id, String exam, int score);
+	Boolean addScore(Integer id, ScoreDto scoreDto);
 
-	ArrayList<StudentDto> findStudentByName(String name);
+	List<StudentDto> findStudentByName(String name);
 
-	Integer studentsQuantity(ArrayList<String> nameOfStudents);
+	Integer getStudentsNameQuantity(ArrayList<String> nameOfStudents);
 
-	ArrayList<StudentDto> findStudentByMinScore(String exam, int minScore);
+	List<StudentDto> getStudentsByExamScore(String exam, int minScore);
 
 }
